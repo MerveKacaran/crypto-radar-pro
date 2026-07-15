@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Crypto Radar Pro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script defer
+            src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</head>
+
+<body>
+
+<div class="background-glow glow1"></div>
+<div class="background-glow glow2"></div>
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <div class="logo-circle">
+            📈
+        </div>
+
+        <div>
+
+            <h1>
+
+                Crypto Radar Pro
+
+            </h1>
+
+            <span>
+
+                Live Crypto Analysis Dashboard
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="status-area">
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Online
+
+        </div>
+
+        <div id="clock">
+
+            --:--:--
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="cards">
+
+    <div class="card">
+
+        <h3>Toplam Coin</h3>
+
+        <p id="coinCount">
+
+            0
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🚀 Güçlü AL</h3>
+
+        <p id="buyCount">
+
+            0
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🚨 SAT</h3>
+
+        <p id="sellCount">
+
+            0
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Son Güncelleme</h3>
+
+        <p id="lastUpdate">
+
+            --
+
+        </p>
+
+    </div>
+
+</section>
+
+<main class="dashboard">
+
+<section class="panel">
+
+<h2>
+
+📊 Canlı Radar
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Coin</th>
+
+<th>Fiyat</th>
+
+<th>Değişim</th>
+
+<th>Sinyal</th>
+
+<th>İşlem</th>
+
+</tr>
+
+</thead>
+
+<tbody id="marketTable">
+
+<tr>
+
+<td colspan="5">
+
+Veriler bekleniyor...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+<section class="panel">
+<h2>
+
+💼 Aktif İşlemler
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Coin</th>
+<th>Alış</th>
+<th>Canlı</th>
+<th>Kâr/Zarar</th>
+<th>İşlem</th>
+
+</tr>
+
+</thead>
+
+<tbody id="portfolioTable">
+
+<tr>
+
+<td colspan="5">
+
+Henüz açık işlem bulunmuyor.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<section class="panel">
+
+<h2>
+
+📒 İşlem Günlüğü
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Tarih</th>
+<th>Coin</th>
+<th>Alış</th>
+<th>Satış</th>
+<th>Sonuç</th>
+
+</tr>
+
+</thead>
+
+<tbody id="historyTable">
+
+<tr>
+
+<td colspan="5">
+
+Henüz işlem geçmişi bulunmuyor.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h3>
+
+Crypto Radar Pro
+
+</h3>
+
+<p>
+
+Professional Crypto Analysis Dashboard
+
+</p>
+
+</div>
+
+<div>
+
+<p>
+
+Version 1.0
+
+</p>
+
+<p>
+
+Developed by
+
+<strong>
+
+Merve Kaçaranlıoğlu Topçu
+
+</strong>
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+<!-- Toast Bildirim Kutusu -->
+
+<div id="toast" class="toast">
+
+    İşlem başarılı.
+
+</div>
+
+<!-- Sayfa Yükleniyor -->
+
+<div id="loader" class="loader hidden">
+
+    <div class="spinner"></div>
+
+    <p>Crypto Radar Pro yükleniyor...</p>
+
+</div>
+
+</body>
+
+</html>
