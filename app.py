@@ -86,8 +86,6 @@ def market_data():
 
         })
 
-})
-
     except Exception as e:
 
         return jsonify({
