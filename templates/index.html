@@ -307,6 +307,84 @@ Merve Kaçaranlıoğlu Topçu
 </div>
 
 <!-- Sayfa Yükleniyor -->
+<!-- ==========================
+     ALIŞ MODALI
+========================== -->
+
+<div id="buyModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 id="modalCoinName">
+                Coin Satın Al
+            </h2>
+
+            <button class="close-btn" onclick="closeBuyModal()">
+                ✖
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="input-group">
+
+                <label>
+                    💰 Kaç TL'lik aldın?
+                </label>
+
+                <input
+                    type="number"
+                    id="buyAmount"
+                    placeholder="Örneğin 5000">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    🎯 Hedef Kar (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="targetPercent"
+                    value="10">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    🛑 Stop Loss (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="stopPercent"
+                    value="5">
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                class="btn-buy"
+                onclick="savePurchase()">
+
+                💾 Kaydet
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 <div id="loader" class="loader hidden">
 
