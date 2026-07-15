@@ -106,21 +106,9 @@ def not_found(error):
     }), 404
 
 
-@app.errorhandler(500)
-def server_error(error):
-
-    return jsonify({
-
-        "status": "error",
-
-        "message": "Sunucu hatası."
-
-    }), 500
-
-
 if __name__ == "__main__":
     app.run(
-        host="0.0.0.0",
-        port=10000,
-        debug=True
-    )
+    host="0.0.0.0",
+    port=10000,
+    debug=False
+)
