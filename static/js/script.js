@@ -75,11 +75,14 @@ if (!response.ok) {
 
         if(json.status==="success"){
 
-            marketData=json.coins;
+           marketData = [
+    ...json.gainers,
+    ...json.losers
+];
 
-            drawMarket();
+drawMarket();
 
-            updateCards();
+updateCards();
 
             document.getElementById("lastUpdate").innerHTML=
                 new Date().toLocaleTimeString("tr-TR");
@@ -108,6 +111,15 @@ if (!response.ok) {
 function drawMarket() {
 
     const tbody = document.getElementById("marketTable");
+
+   tbody.innerHTML += `
+<tr>
+    <td colspan="5"
+        style="background:#18253d;font-weight:bold;color:#00d26a;">
+        🚀 EN ÇOK YÜKSELENLER
+    </td>
+</tr>
+`;
 
     tbody.innerHTML = "";
 
@@ -162,6 +174,15 @@ function drawMarket() {
         `;
 
     });
+
+   tbody.innerHTML += `
+<tr>
+    <td colspan="5"
+        style="background:#18253d;font-weight:bold;color:#ff4d67;">
+        📉 EN ÇOK DÜŞENLER
+    </td>
+</tr>
+`;
 
 }
 
