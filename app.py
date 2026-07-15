@@ -70,19 +70,21 @@ def market_data():
 
         coins.sort(key=lambda x: x["change"], reverse=True)
 
-top_gainers = coins[:5]
+        top_gainers = coins[:5]
 
-top_losers = sorted(coins, key=lambda x: x["change"])[:5]
+        top_losers = sorted(coins, key=lambda x: x["change"])[:5]
 
-return jsonify({
+        return jsonify({
 
-    "status": "success",
+            "status": "success",
 
-    "gainers": top_gainers,
+            "gainers": top_gainers,
 
-    "losers": top_losers,
+            "losers": top_losers,
 
-    "count": len(coins)
+            "count": len(coins)
+
+        })
 
 })
 
