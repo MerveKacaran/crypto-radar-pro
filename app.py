@@ -5,13 +5,15 @@ import ccxt
 app = Flask(__name__)
 CORS(app)
 
+# BtcTurk bağlantısı
 exchange = ccxt.btcturk()
 
-# Geçici fiyat hafızası
+# Son fiyatları hafızada tut
 price_memory = {}
 
+
 @app.route("/")
-def index():
+def home():
     return render_template("index.html")
 
 
@@ -19,12 +21,13 @@ def index():
 def status():
     return jsonify({
         "status": "online",
-        "exchange": "BtcTurk"
+        "exchange": "BtcTurk",
+        "version": "1.0"
     })
 
 
 @app.route("/api/veri")
-def veri():
+def market_data():
 
     global price_memory
 
@@ -46,31 +49,78 @@ def veri():
 
             previous = price_memory.get(symbol, price)
 
-            change = ((price - previous) / previous) * 100 if previous else 0
+            if previous == 0:
+                previous = price
+
+            change = ((price - previous) / previous) * 100
 
             price_memory[symbol] = price
 
             coins.append({
+
                 "symbol": symbol,
-                "price": price,
+
+                "price": float(price),
+
                 "formatted_price": f"{price:,.2f} ₺",
-                "change": round(change, 3)
+
+                "change": round(change, 2)
+
             })
 
-        coins = sorted(coins, key=lambda x: x["change"], reverse=True)
+        coins.sort(
+            key=lambda x: x["change"],
+            reverse=True
+        )
 
         return jsonify({
+
             "status": "success",
-            "coins": coins
+
+            "coins": coins,
+
+            "count": len(coins)
+
         })
 
     except Exception as e:
 
         return jsonify({
+
             "status": "error",
+
             "message": str(e)
-        })
+
+        }), 500
+
+
+@app.errorhandler(404)
+def not_found(error):
+
+    return jsonify({
+
+        "status": "error",
+
+        "message": "Sayfa bulunamadı."
+
+    }), 404
+
+
+@app.errorhandler(500)
+def server_error(error):
+
+    return jsonify({
+
+        "status": "error",
+
+        "message": "Sunucu hatası."
+
+    }), 500
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    app.run(
+        host="0.0.0.0",
+        port=10000,
+        debug=True
+    )
