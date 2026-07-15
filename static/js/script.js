@@ -65,9 +65,11 @@ async function loadMarket(){
 
     try{
 
-        showLoader();
+        const response = await fetch(API_URL);
 
-        const response=await fetch(API_URL);
+if (!response.ok) {
+    throw new Error("API bağlantısı başarısız.");
+}
 
         const json=await response.json();
 
@@ -95,8 +97,6 @@ async function loadMarket(){
     }
 
     finally{
-
-        hideLoader();
 
     }
 
@@ -409,6 +409,10 @@ drawPortfolio();
 
 drawHistory();
 
-loadMarket();
+showLoader();
 
-setInterval(loadMarket,5000);
+loadMarket().then(() => {
+    hideLoader();
+});
+
+setInterval(loadMarket, 5000);
