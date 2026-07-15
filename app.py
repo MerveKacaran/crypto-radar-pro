@@ -68,20 +68,23 @@ def market_data():
 
             })
 
-        coins.sort(
-            key=lambda x: x["change"],
-            reverse=True
-        )
+        coins.sort(key=lambda x: x["change"], reverse=True)
 
-        return jsonify({
+top_gainers = coins[:5]
 
-            "status": "success",
+top_losers = sorted(coins, key=lambda x: x["change"])[:5]
 
-            "coins": coins,
+return jsonify({
 
-            "count": len(coins)
+    "status": "success",
 
-        })
+    "gainers": top_gainers,
+
+    "losers": top_losers,
+
+    "count": len(coins)
+
+})
 
     except Exception as e:
 
