@@ -150,7 +150,7 @@ function drawMarket() {
             <td>
 
                 <button class="btn-buy"
-                    onclick="buyCoin('${coin.symbol}',${coin.price})">
+                    onclick="openBuyModal('${coin.symbol}',${coin.price})"
 
                     AL
 
@@ -193,7 +193,36 @@ function updateCards() {
 
 }
 
+/* ==========================================================
+   BUY MODAL
+========================================================== */
 
+let selectedCoin = null;
+let selectedPrice = 0;
+
+function openBuyModal(symbol, price){
+
+    selectedCoin = symbol;
+    selectedPrice = price;
+
+    document.getElementById("modalCoinName").innerHTML =
+        symbol;
+
+    document.getElementById("buyAmount").value = "";
+
+    document.getElementById("targetPercent").value = 10;
+
+    document.getElementById("stopPercent").value = 5;
+
+    document.getElementById("buyModal").classList.remove("hidden");
+
+}
+
+function closeBuyModal(){
+
+    document.getElementById("buyModal").classList.add("hidden");
+
+}
 /* ==========================================================
    ALIŞ
 ========================================================== */
