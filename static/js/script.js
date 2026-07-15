@@ -226,28 +226,71 @@ function closeBuyModal(){
 /* ==========================================================
    ALIŞ
 ========================================================== */
+function savePurchase(){
 
-function buyCoin(symbol, price) {
+    const amountTL =
+        parseFloat(document.getElementById("buyAmount").value);
+
+    const targetPercent =
+        parseFloat(document.getElementById("targetPercent").value);
+
+    const stopPercent =
+        parseFloat(document.getElementById("stopPercent").value);
+
+    if(isNaN(amountTL) || amountTL<=0){
+
+        toast("Lütfen geçerli bir tutar giriniz.");
+
+        return;
+
+    }
+
+    const coinAmount =
+        amountTL / selectedPrice;
+
+    const targetPrice =
+        selectedPrice * (1 + targetPercent / 100);
+
+    const stopPrice =
+        selectedPrice * (1 - stopPercent / 100);
 
     portfolio.push({
 
-        symbol: symbol,
+        symbol:selectedCoin,
 
-        buyPrice: price,
+        buyPrice:selectedPrice,
 
-        buyDate: new Date().toLocaleString("tr-TR")
+        amountTL:amountTL,
+
+        coinAmount:coinAmount,
+
+        targetPercent:targetPercent,
+
+        stopPercent:stopPercent,
+
+        targetPrice:targetPrice,
+
+        stopPrice:stopPrice,
+
+        buyDate:new Date().toLocaleString("tr-TR")
 
     });
 
     localStorage.setItem(
+
         "portfolio",
+
         JSON.stringify(portfolio)
+
     );
+
+    closeBuyModal();
 
     drawPortfolio();
 
-    toast(symbol + " portföye eklendi.");
+    toast(selectedCoin + " başarıyla eklendi.");
 
+}
 }
 
 
