@@ -5,10 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Crypto Radar Pro</title>
+    <title>Crypto Radar Pro v2</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -28,20 +27,18 @@
     <div class="logo-area">
 
         <div class="logo-circle">
+
             📈
+
         </div>
 
         <div>
 
-            <h1>
-
-                Crypto Radar Pro
-
-            </h1>
+            <h1>Crypto Radar Pro</h1>
 
             <span>
 
-                Live Crypto Analysis Dashboard
+                Professional Crypto Trading Dashboard
 
             </span>
 
@@ -49,9 +46,9 @@
 
     </div>
 
-    <div class="status-area">
+    <div class="header-right">
 
-        <div class="status">
+        <div class="online-box">
 
             <span class="status-dot"></span>
 
@@ -69,236 +66,367 @@
 
 </header>
 
-<section class="cards">
+<main class="container">
 
-    <div class="card">
+<section class="dashboard">
 
-        <h3>Toplam Coin</h3>
-
-        <p id="coinCount">
-
-            0
-
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>🚀 Güçlü AL</h3>
-
-        <p id="buyCount">
-
-            0
-
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>🚨 SAT</h3>
-
-        <p id="sellCount">
-
-            0
-
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>Son Güncelleme</h3>
-
-        <p id="lastUpdate">
-
-            --
-
-        </p>
-
-    </div>
-
-</section>
-
-<main class="dashboard">
-
-<section class="panel">
-
-<h2>
-
-📊 Canlı Radar
-
-</h2>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Coin</th>
-
-<th>Fiyat</th>
-
-<th>Değişim</th>
-
-<th>Sinyal</th>
-
-<th>İşlem</th>
-
-</tr>
-
-</thead>
-
-<tbody id="marketTable">
-
-<tr>
-
-<td colspan="5">
-
-Veriler bekleniyor...
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</section>
-<section class="panel">
-<h2>
-
-💼 Aktif İşlemler
-
-</h2>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Coin</th>
-<th>Alış</th>
-<th>Canlı</th>
-<th>Kâr/Zarar</th>
-<th>İşlem</th>
-
-</tr>
-
-</thead>
-
-<tbody id="portfolioTable">
-
-<tr>
-
-<td colspan="5">
-
-Henüz açık işlem bulunmuyor.
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</section>
-
-<section class="panel">
-
-<h2>
-
-📒 İşlem Günlüğü
-
-</h2>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Tarih</th>
-<th>Coin</th>
-<th>Alış</th>
-<th>Satış</th>
-<th>Sonuç</th>
-
-</tr>
-
-</thead>
-
-<tbody id="historyTable">
-
-<tr>
-
-<td colspan="5">
-
-Henüz işlem geçmişi bulunmuyor.
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</section>
-
-</main>
-
-<footer>
-
-<div class="footer-content">
-
-<div>
+<div class="info-card">
 
 <h3>
 
-Crypto Radar Pro
+💰 Portföy
 
 </h3>
 
-<p>
+<p id="portfolioValue">
 
-Professional Crypto Analysis Dashboard
-
-</p>
-
-</div>
-
-<div>
-
-<p>
-
-Version 1.0
+0 ₺
 
 </p>
 
-<p>
+<span>
 
-Developed by
+Toplam Varlık
 
-<strong>
+</span>
 
-Merve Kaçaranlıoğlu Topçu
+</div>
 
-</strong>
+<div class="info-card">
+
+<h3>
+
+📈 Günlük Kar
+
+</h3>
+
+<p id="dailyProfit">
+
+0 ₺
 
 </p>
 
-</div>
+<span>
+
+Bugünkü Sonuç
+
+</span>
 
 </div>
+
+<div class="info-card">
+
+<h3>
+
+💼 Açık İşlem
+
+</h3>
+
+<p id="openTrades">
+
+0
+
+</p>
+
+<span>
+
+Aktif Pozisyon
+
+</span>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+
+⚠ Risk
+
+</h3>
+
+<p id="riskLevel">
+
+Düşük
+
+</p>
+
+<span>
+
+Portföy Durumu
+
+</span>
+
+</div>
+
+</section>
+
+<!-- =========================
+     AI PANELİ
+========================== -->
+
+<section class="ai-panel">
+
+    <div class="ai-header">
+
+        <h2>🤖 AI Durum Özeti</h2>
+
+        <span class="ai-live">
+            LIVE
+        </span>
+
+    </div>
+
+    <div id="aiSummary" class="ai-content">
+
+        <p>📊 Piyasa analiz ediliyor...</p>
+
+        <p>⏳ İlk veriler bekleniyor.</p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TOP GAINERS / LOSERS
+========================== -->
+
+<section class="market-panels">
+
+    <div class="market-card">
+
+        <div class="market-title">
+
+            🚀 En Çok Yükselenler
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Coin</th>
+
+                    <th>Fiyat</th>
+
+                    <th>%</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="gainersTable">
+
+                <tr>
+
+                    <td colspan="3">
+
+                        Veriler yükleniyor...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="market-card">
+
+        <div class="market-title red">
+
+            📉 En Çok Düşenler
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Coin</th>
+
+                    <th>Fiyat</th>
+
+                    <th>%</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="losersTable">
+
+                <tr>
+
+                    <td colspan="3">
+
+                        Veriler yükleniyor...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     AKTİF POZİSYONLAR
+========================== -->
+
+<section class="portfolio-section">
+
+    <div class="section-header">
+
+        <h2>💼 Aktif Pozisyonlar</h2>
+
+        <span id="portfolioCount">
+
+            0 Pozisyon
+
+        </span>
+
+    </div>
+
+    <div id="portfolioCards" class="portfolio-grid">
+
+        <div class="empty-card">
+
+            <div class="empty-icon">
+
+                📂
+
+            </div>
+
+            <h3>
+
+                Henüz Açık Pozisyon Yok
+
+            </h3>
+
+            <p>
+
+                Radar bölümünden bir coin satın aldığında
+                burada canlı olarak takip edebileceksin.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     İŞLEM GEÇMİŞİ
+========================== -->
+
+<section class="history-section">
+
+    <div class="section-header">
+
+        <h2>📒 İşlem Geçmişi</h2>
+
+    </div>
+
+    <table class="history-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Tarih</th>
+
+                <th>Coin</th>
+
+                <th>Alış</th>
+
+                <th>Satış</th>
+
+                <th>Sonuç</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="historyTable">
+
+            <tr>
+
+                <td colspan="5">
+
+                    Henüz tamamlanmış işlem bulunmuyor.
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-left">
+
+        <h3>
+
+            Crypto Radar Pro
+
+        </h3>
+
+        <p>
+
+            Professional Crypto Trading Dashboard
+
+        </p>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p>
+
+            Version 2.0 Development
+
+        </p>
+
+        <p>
+
+            Developed by
+
+            <strong>
+
+                Merve Kaçaranlıoğlu Topçu
+
+            </strong>
+
+        </p>
+
+    </div>
 
 </footer>
-<!-- Toast Bildirim Kutusu -->
+
+
+<!-- =========================
+     TOAST
+========================== -->
 
 <div id="toast" class="toast">
 
@@ -306,93 +434,25 @@ Merve Kaçaranlıoğlu Topçu
 
 </div>
 
-<!-- Sayfa Yükleniyor -->
-<!-- ==========================
-     ALIŞ MODALI
+
+<!-- =========================
+     LOADER
 ========================== -->
-
-<div id="buyModal" class="modal hidden">
-
-    <div class="modal-content">
-
-        <div class="modal-header">
-
-            <h2 id="modalCoinName">
-                Coin Satın Al
-            </h2>
-
-            <button class="close-btn" onclick="closeBuyModal()">
-                ✖
-            </button>
-
-        </div>
-
-        <div class="modal-body">
-
-            <div class="input-group">
-
-                <label>
-                    💰 Kaç TL'lik aldın?
-                </label>
-
-                <input
-                    type="number"
-                    id="buyAmount"
-                    placeholder="Örneğin 5000">
-
-            </div>
-
-            <div class="input-group">
-
-                <label>
-                    🎯 Hedef Kar (%)
-                </label>
-
-                <input
-                    type="number"
-                    id="targetPercent"
-                    value="10">
-
-            </div>
-
-            <div class="input-group">
-
-                <label>
-                    🛑 Stop Loss (%)
-                </label>
-
-                <input
-                    type="number"
-                    id="stopPercent"
-                    value="5">
-
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button
-                class="btn-buy"
-                onclick="savePurchase()">
-
-                💾 Kaydet
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
 
 <div id="loader" class="loader hidden">
 
     <div class="spinner"></div>
 
-    <p>Crypto Radar Pro yükleniyor...</p>
+    <p>
+
+        Crypto Radar Pro hazırlanıyor...
+
+    </p>
 
 </div>
+
+
+</main>
 
 </body>
 
